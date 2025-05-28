@@ -76,13 +76,16 @@ class Message extends BaseController
     // Créer un nouveau message
     public function create()
     {
+        $user = auth()->user(); // Récupérer l'utilisateur connecté
+
         $data = [
             'IDCOMMUNE' => $this->request->getPost('IDCOMMUNE'),
             'ETAT'      => $this->request->getPost('ETAT'),
             'TEXTE'     => $this->request->getPost('TEXTE'),
             'COULEUR'   => $this->request->getPost('COULEUR'),
             'TAILLE'    => $this->request->getPost('TAILLE'),
-            'date_fin'  => $this->request->getPost('date_fin'), // Enregistrement de la date de fin
+            'date_fin'  => $this->request->getPost('date_fin'),
+            'user_id'   => $user->id, // Associer l'utilisateur au message
         ];
 
         $this->messageModel->save($data);
@@ -121,6 +124,19 @@ class Message extends BaseController
         $message = $this->messageModel->find($id);
         return view('messages/view_message', [
             'message' => $message
+        ]);
+    }
+
+    public function preview($id)
+    {
+        $message = $this->messageModel->find($id);
+
+        // Récupérer les informations de l'utilisateur qui a écrit le message
+        $user = $this->userModel->find($message['user_id']);
+
+        return view('messages/preview_message', [
+            'message' => $message,
+            'user' => $user, // Passer les informations de l'utilisateur à la vue
         ]);
     }
 }

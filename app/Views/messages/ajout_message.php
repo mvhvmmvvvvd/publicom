@@ -1,9 +1,9 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('contenu') ?>
 
-<h1>Ajouter un message</h1>
+<h1>Ajouter un Message</h1>
 
-<form action="<?= url_to('createMessage') ?>" method="post">
+<form action="/messages/create" method="post">
     <!-- <label for="REFERENCE">Panneau</label>
     <select name="REFERENCE" id="REFERENCE">
         <option value="">--Choisir un panneau --</option>
@@ -40,18 +40,18 @@
     </select>
 
     <label for="texte">Texte :</label>
-    <input type="text" id="TEXTE" name="TEXTE" required />
+    <input type="text" id="texte" name="texte" required />
 
-    <label for="couleur">Couleur</label>
-    <input type="color" id="COULEUR" name="COULEUR" value="#ff0000">
+    <label for="couleur">Couleur :</label>
+    <input type="text" id="couleur" name="couleur" required />
 
-    <!-- <label for="taille">Taille :</label>
-    <input type="text" id="taille" name="TAILLE" required /> -->
+    <label for="taille">Taille :</label>
+    <input type="number" id="taille" name="taille" required />
 
     <label for="date_fin">Date de fin :</label>
     <input type="date" id="date_fin" name="date_fin" required />
 
-    <input type="submit" value="Valider" />
+    <button type="submit">Ajouter</button>
 </form>
 
 <?= $this->endSection() ?>

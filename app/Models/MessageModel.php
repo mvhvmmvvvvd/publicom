@@ -19,7 +19,7 @@ class MessageModel extends Model
         'COULEUR',
         'TAILLE',
         'date_fin', // Utilisation de la colonne existante
-        'demandeur_id' // Ajout du demandeur
+        'user_id' // Ajout de l'utilisateur qui a écrit le message
     ];
 
     protected bool $allowEmptyInserts = false;
