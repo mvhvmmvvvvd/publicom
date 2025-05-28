@@ -48,6 +48,9 @@
     <!-- <label for="taille">Taille :</label>
     <input type="text" id="taille" name="TAILLE" required /> -->
 
+    <label for="date_fin">Date de fin :</label>
+    <input type="date" id="date_fin" name="date_fin" required />
+
     <input type="submit" value="Valider" />
 </form>
 

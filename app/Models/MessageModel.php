@@ -12,7 +12,15 @@ class MessageModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['IDCOMMUNE', 'ETAT', 'TEXTE', 'COULEUR', 'TAILLE'];
+    protected $allowedFields    = [
+        'IDCOMMUNE',
+        'ETAT',
+        'TEXTE',
+        'COULEUR',
+        'TAILLE',
+        'date_fin', // Utilisation de la colonne existante
+        'demandeur_id' // Ajout du demandeur
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

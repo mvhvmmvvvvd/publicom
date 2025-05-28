@@ -76,10 +76,18 @@ class Message extends BaseController
     // Créer un nouveau message
     public function create()
     {
-        $message = $this->request->getPost();
-        // dd($message);
-        $this->messageModel->insert($message);
-        return redirect('message');
+        $data = [
+            'IDCOMMUNE' => $this->request->getPost('IDCOMMUNE'),
+            'ETAT'      => $this->request->getPost('ETAT'),
+            'TEXTE'     => $this->request->getPost('TEXTE'),
+            'COULEUR'   => $this->request->getPost('COULEUR'),
+            'TAILLE'    => $this->request->getPost('TAILLE'),
+            'date_fin'  => $this->request->getPost('date_fin'), // Enregistrement de la date de fin
+        ];
+
+        $this->messageModel->save($data);
+
+        return redirect()->to('/messages');
     }
 
     // Afficher le formulaire pour modifier un message

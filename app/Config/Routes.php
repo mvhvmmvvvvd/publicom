@@ -46,6 +46,8 @@ $routes->get('modifier_message/(:num)', 'Message::modif/$1', ['as' => 'modifMess
 $routes->post('modifier_message', 'Message::update', ['as' => 'updateMessage']);
 
 $routes->post('suppr_message', 'Message::delete', ['as' => 'supprMessage']);
+
+$routes->get('messages/active', 'Message::getActiveMessages');
 //-----------------------------------------------
 
 $routes->get('gestion_utilisateur', 'Utilisateur::index', ['as' => 'utilisateur']);
